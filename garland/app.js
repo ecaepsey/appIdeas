@@ -8,7 +8,7 @@ function App()  {
        var u = 0.0;
       setInterval(function(){           
            u += step_u;
-           div.style.backgroundColor = that.getRandomColorAndAnimation(u)
+           div.style.backgroundColor = that.getRandomColor(u)
        }, interval)      
        document.body.appendChild(div)     
     };  
@@ -17,8 +17,8 @@ function App()  {
         this.drawCircle()      
     };
 
-    this.getRandomColorAndAnimation = function(alpha) {        
-    
+    this.getRandomColor = function(alpha) {    
+        // get static color not random
         let a = alpha
         let r = Math.floor(Math.random() * 255)
         let g = Math.floor(Math.random() * 255)
