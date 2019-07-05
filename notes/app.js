@@ -7,7 +7,14 @@ const note = {
     },
     removeNote: function(index) {
         this.notes.splice(index, 1);
-    }
+    },
+
+    changeNote: function(position, value) {
+        var notePosition = this.notes[position];
+        notePosition.todoText = value
+    },
+
+
 }
 
 var handler = {    
@@ -20,7 +27,18 @@ var handler = {
     removeNote: function(position) {  
         note.removeNote(position)
         view.drawView();
-    }
+    },
+    changeTodo: function () {
+        var changeTodoInputPosition = document.getElementById("changeTodoInputPosition");
+        var changeTodoInputText = document.getElementById("changeTodoInputText");
+        
+        note.changeNote(changeTodoInputPosition.valueAsNumber, changeTodoInputText.value);
+        
+        changeTodoInputPosition.value = "";
+        changeTodoInputText.value = "";
+        
+        view.drawView();
+    },
 }
 
 var view = {
